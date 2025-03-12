@@ -1,6 +1,7 @@
 # ignore all jupyter checkpoints
 .ipynb_checkpoints
 .ipynb_checkpoints/*
+*.gif
 
 # ignore all pycache
 __pycache__
