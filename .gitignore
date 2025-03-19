@@ -5,3 +5,8 @@
 # ignore all pycache
 __pycache__
 __pycache__/*
+
+# ignore gifs, json, csv
+*.gif
+*.json
+*.csv
