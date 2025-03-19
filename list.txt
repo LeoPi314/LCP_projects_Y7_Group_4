@@ -1,0 +1,17 @@
+god_500_iter_3_p.png
+physicist_1000_iter_1_p.png
+Shuffle_All_100_mut_1000_iter_4_p.png
+disney_500_iter_3_p.png
+PoD_250_iter_1_p.png
+nobel_1000_iter_3_p.png
+Same_All_125_mut_1000_iter_3_p.png
+test_250_iter_1_p.png
+pod_gif_all.gif
+god_500_iter_3_p.gif
+physicist_1000_iter_1_p.gif
+Shuffle_All_100_mut_1000_iter_4_p.gif
+disney_500_iter_3_p.gif
+PoD_250_iter_1_p.gif
+nobel_1000_iter_3_p.gif
+Same_All_125_mut_1000_iter_3_p.gif
+test_250_iter_1_p.gif
