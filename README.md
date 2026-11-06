@@ -1,17 +1,104 @@
-# Final Projects for Laboratory of Computational Physics
+# Iterative Prisoner's Dilemma (IPD) Simulation
 
-In each of the branches of this repo you find all the necessary to complete your final project.
-In particular the file Project.ipynb describes the projects and provides guidance to its development.
-Other files could be present if needed.
+## Authors
 
-Each branch is named after the group of students a given project is assigned to.
-The groups compositions are listed [here](https://docs.google.com/spreadsheets/d/124iLKfGEpxT33WgRqtuJqsoAjADjbarMWn5xxClTYEw/edit?gid=1442920615#gid=1442920615)
+* **Leonardo Pieripolli**
 
-Students are supposed to work together to produce a short report on the assigned task. The preferred format for the latter is a jupyter notebook, with the proper description, the code implemented for the purpose and the actual results (plots, tables, etc.). The notebook has to be delivered with all the cells executed and should live in a GitHib repository. There is no need to make a pull request to the central repository.
 
-### Computing Resources
+* **Tommaso Pirazzo**
 
-A Virtual Machine within [CloudVeneto](http://cloudveneto.it/) can be created for each group. Note that, by default, they are not. For some projects though, large datasets are needed, in those cases a VM has been (are being) created to store those files. Refer to ClouldInstructions.md for the steps to take in order to use those resources.
 
-Alternatively, students can use [colab](https://colab.research.google.com/) (for which though no instructions are provided here).
+* **Mattia Ponchio**
 
+
+* **Benedetto Secco**
+
+
+
+---
+
+## Overview
+
+This project explores the **Iterative Prisoner's Dilemma (IPD)** within the context of game theory. While the single-shot Prisoner's Dilemma dictates defection as the dominant strategy, repeating the interaction over multiple rounds often fosters the emergence of cooperative and altruistic behaviors.
+
+This repository contains simulations, strategy implementations, and analytical tools to test how various behavioral algorithms perform against each other across different payoff matrices and round configurations.
+
+---
+
+## Tools & Libraries Used
+
+The project was developed entirely in Python using a Jupyter Notebook environment, leveraging the following core libraries:
+
+* **`numpy`**`: For matrix operations, linear algebra calculations.
+
+
+* **`pandas`**: For data organization and structuring results.
+
+
+* **`matplotlib` & `seaborn**`: For plotting match histories, score convergence, and visual analytics.
+
+
+* **`itertools`: For handling state management and iterations.
+
+
+
+---
+
+## Implemented Strategies
+
+The project features a diverse set of deterministic and probabilistic player strategies, each adhering to a standardized function template taking the round number, match history, and player index:
+
+1. **NiceGuy**: Always cooperates.
+
+
+2. **BadGuy**: Always defects.
+
+
+3. **MainlyNice**: Randomly defects a small percentage ($k\%$) of the time.
+
+
+4. **MainlyBad**: Cooperates a small percentage ($1-k\%$) of the time.
+
+
+5. **RandomGuy**: Randomly chooses to cooperate or defect with equal probability (50/50).
+
+
+6. **TitForTat**: Starts by cooperating, then mirrors the opponent's previous move.
+
+
+7. **ResentfulGuy (Grim Trigger)**: Cooperates until the opponent defects once, then defects permanently.
+
+
+8. **TrustingGuy**: Adapts its cooperation probability dynamically based on the opponent's historical cooperation rate.
+
+
+9. **BalancingGuy (Thanos)**: Cooperates or defects depending on whether the cumulative history of cooperations is even or odd.
+
+
+10. **MidResentful**: Cooperates usually, but defects if the opponent has defected in any of the last 3 rounds.
+
+
+11. **ReverseTitForTat**: Defects on the first move, then plays the exact opposite of the opponent's last move.
+
+
+12. **ScammingGuy**: Exploits a sequence (defect, then cooperate twice) and subsequently optimizes moves based on adversary behavior history.
+
+
+
+---
+
+## Core Structure & Mechanics
+
+* **Payoff Matrix & Normalization**: The reward structure is governed by standard game theory parameters ($T > R > P > S$ and $2R > T+S$). Scores are normalized between $0$ and $1$ to allow fair comparisons across different payoff matrix configurations.
+
+
+* **Rounds & Matches**:
+* A **Round** executes a single 1v1 interaction, calculating immediate rewards via matrix multiplication.
+
+
+* A **Match** runs a sequence of $N$ rounds, accumulating and normalizing scores dynamically over time.
+
+
+
+
+* **Payoff Exploration**: Custom validation functions (`get_new_Payoff` and `test_parameters`) allow the simulation to test extreme and pathological game matrices (ranging from highly altruistic to highly competitive settings).
